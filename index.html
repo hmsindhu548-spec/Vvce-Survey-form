@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartWaste Connect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4fdf6;
+            color: #333;
+        }
+
+        header {
+            background: #2e8b57;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #e0f2e9;
+            padding: 10px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #2e8b57;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #2e8b57;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        button {
+            background: #2e8b57;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #256b45;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 5px solid #2e8b57;
+        }
+
+        footer {
+            background: #2e8b57;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌱 SmartWaste Connect</h1>
+    <p>Reduce Waste • Reuse Resources • Help Society</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#add">Add Waste</a>
+    <a href="#impact">Impact</a>
+    <a href="#faq">FAQ</a>
+</nav>
+
+<section id="home">
+    <h2>🌍 Our Mission</h2>
+    <p>
+        SmartWaste Connect helps people donate usable waste like food,
+        books, clothes, and materials to reduce landfill waste and support communities.
+    </p>
+
+    <h3>📊 Monthly Waste Reduction Progress</h3>
+    <progress value="40" max="100"></progress>
+    <p>40% of waste reused this month</p>
+</section>
+
+<section id="add">
+    <h2>➕ Add Waste for Reuse</h2>
+
+    <form id="wasteForm">
+        <label>Type of Waste</label>
+        <input list="wasteTypes" required>
+        <datalist id="wasteTypes">
+            <option value="Food">
+            <option value="Clothes">
+            <option value="Books">
+            <option value="Plastic">
+            <option value="E-Waste">
+        </datalist>
+
+        <label>Quantity (kg / items)</label>
+        <input type="number" required>
+
+        <label>Location</label>
+        <input type="text" placeholder="City / Area" required>
+
+        <label>Pickup Date</label>
+        <input type="date" required>
+
+        <label>Additional Notes</label>
+        <textarea placeholder="Any special instructions"></textarea>
+
+        <button type="submit">Submit Waste</button>
+    </form>
+
+    <div id="list"></div>
+</section>
+
+<section id="impact">
+    <h2>🌿 Environmental Impact</h2>
+
+    <div class="card">
+        <p><strong>Waste Saved:</strong></p>
+        <meter min="0" max="100" value="60"></meter>
+        <p>60 kg saved from landfill</p>
+    </div>
+
+    <div class="card">
+        <p><strong>CO₂ Emission Reduced:</strong></p>
+        <meter min="0" max="100" value="45"></meter>
+        <p>45% emission reduced</p>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>❓ FAQ</h2>
+
+    <details>
+        <summary>How does this help society?</summary>
+        <p>It connects waste producers with people who can reuse them, reducing waste.</p>
+    </details>
+
+    <details>
+        <summary>Is food donation safe?</summary>
+        <p>Yes, only fresh and edible food before expiry should be donated.</p>
+    </details>
+</section>
+
+<footer>
+    <p>© 2025 SmartWaste Connect | Sustainable Future</p>
+</footer>
+
+<script>
+    const form = document.getElementById("wasteForm");
+    const list = document.getElementById("list");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = "<strong>Waste Submitted Successfully!</strong><br>Thank you for contributing to a cleaner society 🌱";
+
+        list.appendChild(card);
+        form.reset();
+    });
+</script>
+
+</body>
+</html>
